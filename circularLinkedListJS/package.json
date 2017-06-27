@@ -1,0 +1,33 @@
+{
+  "name": "circularLinkedListJS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/babel app -d dist && node ./dist/index.js",
+    "lint": "./node_modules/.bin/eslint ./app/*.js",
+    "test": "ava"
+  },
+  "ava": {
+    "files" : [
+      "tests/*.js"
+    ],
+    "source" : [
+      "app/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
+    "eslint": "^4.0.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0"
+  }
+}
