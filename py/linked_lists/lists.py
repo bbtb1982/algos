@@ -127,6 +127,56 @@ class LinkedList:
         return s
 
 
+class CircularLinkedList(LinkedList):
+    def __init__(self):
+        super(CircularLinkedList, self).__init__()
+
+    def add(self, node):
+        p = self.head
+        node.next = self.head;
+
+        if self.head != None:
+            while p.next != self.head:
+                p = p.next
+
+            p.next = node
+        else:
+            print(p)
+            node.next = node
+
+        print(node)
+        self.head = node
+
+
+    def __iter__(self):
+        p = self.head
+
+        if p != None:
+            print(p)
+            while p.next != self.head:
+                yield p
+                p = p.next
+
+    def __str__(self):
+        s = ""
+        p = self.head
+        ct = 10;
+        if p != None:
+            while p.next != self.head:
+                if ct == 0:
+                    return;
+                print(p)
+                ct -= 1
+                nextId = p.next.id
+                s += "type: {}, id: {}, nextId: {}, data: {} \n".format(type(p), p.id, nextId, p.data)
+                p = p.next
+
+        nextId = None
+        s += "type: {}, id: {}, nextId: {}, data: {} \n".format(type(p), p.id, nextId, p.data)
+
+        return s
+
+
 class DoublyLinkedList(LinkedList):
     def __init__(self):
         super(DoublyLinkedList, self).__init__()
@@ -134,51 +184,61 @@ class DoublyLinkedList(LinkedList):
     def add(self, node):
         p = self.head
 
-        if p == None:
-            self.head = node
-        else:
-            node.next = p
+        if p != None:
             p.prev = node
+            node.next = p
 
-            self.head = node
+        self.head = node
 
     def remove(self, node):
         p = self.head
 
         if p == None:
             return None
-        elif p == node and p.next == None:
-            self.head = None
+
+        elif p == node:
+            if p.next != None:
+                p.next.prev = None;
+
+            self.head = p.next
             return
+
         else:
-            while p.next is not None and p is not node:
+            while p.next != None and p != node:
                 p = p.next
 
-            print(p)
             if p.next == None:
-                print("adsf")
                 p.prev.next = None
             else:
-                p.prev.next == p.next
-                p.next.prev == p.prev
+                p.prev.next = p.next
+                p.next.prev = p.prev
 
 
     def __str__(self):
         s = ""
         p = self.head
-        prevId = None
-        nextId = None
 
-        if p is not None:
-            while p.next is not None:
-                if p.prev: prevId = p.prev.id
-                if p.next: nextId = p.next.id
+        if p != None:
+            while p.next != None:
+                prevId = None
+                nextId = None
+
+                if p.prev:
+                    prevId = p.prev.id
+                if p.next:
+                    nextId = p.next.id
 
                 s += "type: {}, prevId: {}, id: {}, nextId: {}, data: {} \n".format(type(p),prevId, p.id, nextId, p.data)
                 p = p.next
 
-            nextId = None
-            s += "type: {}, prevId: {}, id: {}, nextId: {}, data: {} \n".format(type(p),prevId, p.id, nextId, p.data)
+        prevId = None
+        nextId = None
+        if p.prev:
+            prevId = p.prev.id
+
+        if p.next:
+            nextId = p.next.id
+        s += "type: {}, prevId: {}, id: {}, nextId: {}, data: {} \n".format(type(p),prevId, p.id, nextId, p.data)
 
         return s
 

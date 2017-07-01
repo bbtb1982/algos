@@ -11,7 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.2"
+  },
+  "dependencies": {
+    "global": "^4.3.2"
   }
 }

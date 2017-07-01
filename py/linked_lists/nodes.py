@@ -37,7 +37,15 @@ class LinkedNode:
         return "type: {}, id: {}, nextId: {}".format(type(self), self.id, nextId)
 
 
-class DoublyLinkedNode(LinkedNode):
+class CircularLinkedNode(LinkedNode):
+    def __init__(self):
+        super(CircularLinkedNode, self).__init__()
+        self._data = None
+        self._id = None
+        self._next = self
+
+
+class DoublyLinkedNode(Node, LinkedNode, SpecificLinkedNode):
     def __init__(self):
         super(DoublyLinkedNode, self).__init__()
         self._next = None
@@ -52,5 +60,17 @@ class DoublyLinkedNode(LinkedNode):
     @prev.setter
     def prev(self, node):
         self._prev = node
+
+    def __str__(self):
+        prevId = None
+        nextId = None
+
+        if self.prev:
+            prevId = self.prev.id
+
+        if self.next:
+            nextId = self.next.id
+
+        return "type: {}, prevId: {}, id: {}, nextId: {}".format(type(self), prevId, self.id, nextId)
 
 
