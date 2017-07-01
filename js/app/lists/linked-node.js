@@ -1,6 +1,6 @@
-import BaseNode from './BaseNode';
+import BaseNode from './base-node';
 
-function SinglyLinkedNode() {
+function LinkedNode() {
   BaseNode.call(this);
   this._next = null;
 
@@ -17,4 +17,4 @@ function SinglyLinkedNode() {
 }
 
 
-export default SinglyLinkedNode;
+export default LinkedNode;

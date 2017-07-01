@@ -1,6 +1,6 @@
-import BaseList from './BaseList';
+import BaseList from './base-list';
 
-const CLList = function CLList() {
+const CircularLinkedList = function CircularLinkedList() {
   BaseList.call(this);
 
   this.add = function Add(node) {
@@ -9,7 +9,7 @@ const CLList = function CLList() {
     node.next = this._head;
 
     if (this._head !== null) {
-      while(current.next !== this._head) {
+      while (current.next !== this._head) {
         current = current.next;
       }
       current.next = node;
@@ -27,11 +27,11 @@ const CLList = function CLList() {
       let current = this._head;
       let ct = 0;
 
-      if(current) {
+      if (current) {
         current = current.next;
         ct = 1;
 
-        while(current !== this._head) {
+        while (current !== this._head) {
           current = current.next;
           ct += 1;
         }
@@ -47,14 +47,13 @@ const CLList = function CLList() {
     get() {
       let current = this._head;
 
-      if(!current) {
+      if (!current) {
         return null;
       }
 
       do {
         current = current.next;
-
-      } while(current !== this._head);
+      } while (current !== this._head);
 
       return current;
     },
@@ -71,16 +70,15 @@ const CLList = function CLList() {
     do {
       q = p;
       p = p.next;
-    } while(p !== node && p !== this._head)
+    } while (p !== node && p !== this._head);
 
-    if(p === this._head) {
+    if (p === this._head) {
       q.next = p.next;
       this._head = p.next;
     } else {
       q.next = p.next;
-
     }
-  }
+  };
 
   this.toString = function toString() {
     let p = this._head;
@@ -94,9 +92,7 @@ const CLList = function CLList() {
     } while (p !== this._head && idx < 10);
 
     return string;
-
-  }
-
+  };
 };
 
-export default CLList;
+export default CircularLinkedList;

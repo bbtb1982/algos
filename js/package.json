@@ -6,14 +6,29 @@
   "scripts": {
     "build": "./node_modules/.bin/babel app -d dist",
     "start": "./node_modules/.bin/babel app -d dist && node ./dist/linkedList.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "lint": "./node_modules/.bin/eslint app/**/*.js"
   },
   "author": "",
+  "ava": {
+    "files": [
+      "tests/**/test-*.js"
+    ],
+    "source": [
+      "app/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  },
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.5.2"
+    "babel-preset-env": "^1.5.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1"
   },
   "dependencies": {
     "global": "^4.3.2"

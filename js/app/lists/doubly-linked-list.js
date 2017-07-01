@@ -1,7 +1,7 @@
-import SinglyLinkedList from './SinglyLinkedList';
+import LinkedList from './linked-list';
 
 const DoublyLinkedList = function DoublyLinkedList() {
-  SinglyLinkedList.call(this);
+  LinkedList.call(this);
 
   this.add = function add(node) {
     const p = this._head;
@@ -17,29 +17,34 @@ const DoublyLinkedList = function DoublyLinkedList() {
   this.deleteAt = function deleteAt(pos) {
     let idx = 1;
     let p = this._head;
+    let prevNode = null;
+    let nextNode = null;
 
-    //if (pos === 1) {
-    //  if (p.next !== null) {
-    //    q = p.next;
-    //    q.prev = null;
-    //    this._head = q;
-    //  } else {
-    //    this._head = null;
-    //  }
-    //  return;
-    //}
+    /* if (pos === 1) {
+     *   if (p.next !== null) {
+     *     q = p.next;
+     *     q.prev = null;
+     *     this._head = q;
+     *   } else {
+     *     this._head = null;
+     *   }
+     *   return;
+     * }
+    */
 
     while (p !== null && idx < pos) {
       idx += 1;
       p = p.next;
     }
 
-    let prevNode = p.prev;
-    let nextNode = p.next;
+    prevNode = p.prev;
+    nextNode = p.next;
 
-    //console.log(p);
-    console.log(prevNode);
-    //console.log(nextNode);
+    /*
+     * console.log(p);
+     * console.log(prevNode);
+     *console.log(nextNode);
+    */
 
     if (nextNode) {
       nextNode.prev = prevNode;

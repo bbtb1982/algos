@@ -1,7 +1,7 @@
-import SinglyLinkedNode from './SinglyLinkedNode';
+import LinkedNode from './linked-node';
 
 function DoublyLinkedNode() {
-  SinglyLinkedNode.call(this);
+  LinkedNode.call(this);
   this._prev = null;
 
   Object.defineProperty(this, 'prev', {

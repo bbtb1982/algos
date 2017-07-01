@@ -1,7 +1,7 @@
-import SinglyLinkedList from './SinglyLinkedList';
+import LinkedList from './linked-list';
 
 function UnorderedDoublyLinkedList() {
-  SinglyLinkedList.call(this);
+  LinkedList.call(this);
 }
 
 export default UnorderedDoublyLinkedList;

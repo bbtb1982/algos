@@ -1,4 +1,4 @@
-const LinkNode = function() {
+const LinkNode = function LinkNode() {
   this._data = {};
   this._id = null;
   this._next = null;

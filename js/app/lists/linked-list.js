@@ -1,4 +1,4 @@
-import BaseList from './BaseList';
+import BaseList from './base-list';
 
 const SinglyLinkedList = function SinglyLinkedList() {
   BaseList.call(this);
