@@ -36,6 +36,14 @@ def test_linked_list_getByIndex(linked_list):
     assert node.id == 8
 
 def test_linked_list_inclues(linked_list):
+    node = LinkedNode()
+    node.id = 2
+    node.data = {
+            "name" : "node_{}".format(2),
+            "value": random.randrange(1000),
+
+    }
+
     not_node = LinkedNode()
     not_node.id = 100
     not_node.data = {

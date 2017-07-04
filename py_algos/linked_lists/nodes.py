@@ -45,7 +45,7 @@ class CircularLinkedNode(LinkedNode):
         self._next = self
 
 
-class DoublyLinkedNode(Node, LinkedNode, SpecificLinkedNode):
+class DoublyLinkedNode(LinkedNode):
     def __init__(self):
         super(DoublyLinkedNode, self).__init__()
         self._next = None
